@@ -91,7 +91,7 @@ func main() {
 					}
 					defer poisonResp.Body.Close()
 
-					if strings.Contains(poisonBodyString, "wrtqva.example.com") {
+					if strings.Contains(poisonBodyString, "wrtqva.example.com") || strings.Contains(poisonResp.Header.Get("Location"), "wrtqva.example.com") {
 						fmt.Fprintf(os.Stdout, "Cache poisoned: %s\n", rawURL)
 					}
 				}
